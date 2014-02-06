@@ -15,32 +15,37 @@ public class Calendar
         int year = scan.nextInt();
         System.out.println("Enter Month[MM]: ");
         int month = scan.nextInt();
+        System.out.println(numDaysInMonth(month, year));
+        System.out.println(firstDayOfMonth(month, year));
         System.out.println(MONTHS_OF_YEAR[month] + " " + year);
+
         for (int i = 1; i < DAYS_OF_WEEK.length; i++)
         {
             System.out.print(DAYS_OF_WEEK[i] + " ");
         }
-        for (int i = 1; i < numDaysInMonth(month, year); i++)
+        System.out.println("");
+        int days = 0;
+        for (int k = 1; k <= firstDayOfMonth(month, year); k++)
         {
-            int days = 0;
-            for (int k = 1; k < firstDayOfMonth(month, year); k++)
-            {
-                System.out.print("   ");
-                days += 1;
-            }
+            System.out.print("   ");
+            days += 1;
+        }
+        for (int i = 1; i <= numDaysInMonth(month, year); i++)
+        {
+            
             if (i < 10)
             {
-                System.out.print("  " + i);
                 days += 1;
+                System.out.print("  " + i);
             }
             else
             {
-                System.out.print(" " + i);
                 days += 1;
+                System.out.print(" " + i);
             }
             if (days == 7)
             {
-                System.out.print("\n");
+                System.out.println("");
                 days = 0;
             }
 
